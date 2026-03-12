@@ -1,0 +1,40 @@
+project:
+  name: sample
+  team: data-engineering
+  environment: development
+
+contracts:
+  directory: ./contracts
+  auto_register: true
+  watch_mode: false
+
+connections:
+  - name: public_api
+    type: rest
+    base_url: https://jsonplaceholder.typicode.com
+    endpoint: /posts
+    auth_type: none          # bearer | api_key | basic | none
+    json_path: $             # $ = root array
+
+extensions:
+  custom_rules_dir: ./custom_rules
+  custom_connectors_dir: ./custom_connectors
+
+database:
+  type: mysql
+  host: ${DCVPG_DB_HOST}     # e.g. localhost
+  port: 3306
+  name: ${DCVPG_DB_NAME}     # e.g. dcvpg
+  user: ${DCVPG_DB_USER}
+  password: ${DCVPG_DB_PASSWORD}
+
+alerting:
+  default_severity_threshold: WARNING
+  slack:
+    enabled: true
+    webhook_env: SLACK_WEBHOOK_URL          # dcvpg reads $env:SLACK_WEBHOOK_URL at runtime
+    channel: "#all-pasidus-team"
+    mention_owners: true
+autowatch:
+  enabled: true
+  interval_seconds: 60

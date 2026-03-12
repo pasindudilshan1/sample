@@ -1,0 +1,49 @@
+contract:
+  name: posts
+  version: "1.0"
+  owner_team: data-engineering
+  source_owner: jsonplaceholder
+  source_connection: public_api
+  source_table: posts
+  description: "Posts from JSONPlaceholder REST API — 100 records across 10 users"
+
+  row_count_min: 100
+  row_count_max: 100
+  sla_freshness_hours: 24
+
+  pipeline_tags:
+    - rest-api
+    - public
+    - posts
+
+  schema:
+    - field: userId
+      type: integer
+      nullable: false
+      min: 1
+      max: 10
+      allowed_values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+      description: "ID of the user who authored the post (1–10)"
+
+    - field: id
+      type: integer
+      nullable: false
+      unique: true
+      min: 1
+      max: 100
+      description: "Primary key — unique post identifier"
+
+    - field: title
+      type: string
+      nullable: false
+      unique: true
+      min_length: 1
+      max_length: 200
+      description: "Post title"
+
+    - field: body
+      type: string
+      nullable: false
+      min_length: 1
+      max_length: 2000
+      description: "Post body text"
