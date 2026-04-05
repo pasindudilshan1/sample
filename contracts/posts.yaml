@@ -1,0 +1,7 @@
+```yaml
+contract:
+  schema:
+    fields:
+      - name: body
+        type: int
+```
