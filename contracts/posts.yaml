@@ -1,3 +1,4 @@
+```yaml
 contract:
   name: posts_generated
   version: "1.0"
@@ -24,6 +25,7 @@ contract:
       nullable: false
       unique: true
     - field: body
-      type: string
+      type: integer
       nullable: false
       unique: true
+```
