@@ -1,7 +1,0 @@
-```yaml
-contract:
-  schema:
-    fields:
-      - name: website
-        type: int
-```
