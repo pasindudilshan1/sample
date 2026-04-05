@@ -1,5 +1,5 @@
 contract:
-  name: users_generated
+  name: users
   version: "1.0"
   owner_team: data-engineering
   source_owner: unknown
