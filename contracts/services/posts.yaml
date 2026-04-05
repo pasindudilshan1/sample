@@ -42,7 +42,7 @@ contract:
       description: "Post title"
 
     - field: body
-      type: string
+      type: int
       nullable: false
       min_length: 1
       max_length: 2000
